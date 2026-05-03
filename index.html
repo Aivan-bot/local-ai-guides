@@ -3,14 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Local AI Guides — Free guides for business leaders</title>
+  <title>XALT AI — Local AI Guides for Business Leaders</title>
   <meta name="description" content="Free, practical guides for getting started with local AI. No data leaves your building. No API keys to third parties. Built for business leaders who need AI without the risk.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
   <header>
     <nav>
-      <a href="/" class="logo">LocalAI<span>Guides</span></a>
+      <a href="index.html" class="logo">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 582.94 119.34" width="100" height="22"><g><path fill="#ffffff" d="M85.59,0h24.7V1L69.91,59l41.58,59.67v.69H86.27L55.75,74.5,25.24,119.34H0v-.69L41.44,59,1.19,1V0H25.91L55.75,44.5Z"/><path fill="#ffffff" d="M260.74,96.83H198.35l-10.21,22.51H163.75L217.29,0h24.54l53.52,119.34H270.81ZM229.56,25.06l-22.17,50.8h44.32Z"/><path fill="#ffffff" d="M381,0V98.55H442.4v20.79H358.54V0Z"/><path fill="#ffffff" d="M522.59,20.46H484.75V0h98.19V20.46H545.1v98.88H522.59Z"/></g></svg>
+        <span>AI</span>
+      </a>
       <div class="nav-links">
         <a href="#why">Why Local AI</a>
         <a href="#guides">Guides</a>
@@ -23,8 +29,9 @@
     <!-- Hero -->
     <section class="hero">
       <div class="hero-content">
-        <h1>Get started with local AI. <span>For free.</span></h1>
-        <p class="hero-sub">Your data stays on your servers. No API keys to strangers. No vendor lock-in. Just open-source models running on hardware you already own.</p>
+        <div class="hero-tag">XALT AI-Powered Guides</div>
+        <h1>Build Faster.<br><span class="highlight">Lead Smarter.</span></h1>
+        <p class="hero-sub">Free, practical guides for getting started with local AI. Your data stays on your servers. No API keys to strangers. No vendor lock-in.</p>
         <div class="hero-ctas">
           <a href="#guides" class="btn btn-primary">Start with a guide →</a>
           <a href="#why" class="btn btn-secondary">Why local AI?</a>
@@ -40,24 +47,28 @@
 
         <div class="card-grid">
           <div class="card">
+            <div class="card-tag">Security</div>
             <div class="card-icon">🔒</div>
             <h3>Data sovereignty</h3>
             <p>Customer contracts, financial projections, HR data — your AI processes it all <strong>inside your infrastructure</strong>. Nothing leaks to third-party APIs.</p>
           </div>
 
           <div class="card">
+            <div class="card-tag">Cost</div>
             <div class="card-icon">📉</div>
             <h3>Predictable costs</h3>
             <p>Cloud AI charges per token. Those costs compound fast with real usage. Local AI runs on hardware you own — marginal cost of inference is near zero.</p>
           </div>
 
           <div class="card">
+            <div class="card-tag">Performance</div>
             <div class="card-icon">⚡</div>
             <h3>Zero latency</h3>
             <p>No network roundtrips to an API gateway. Responses stream directly from your GPU or CPU. Critical for real-time applications.</p>
           </div>
 
           <div class="card">
+            <div class="card-tag">Automation</div>
             <div class="card-icon">🏗️</div>
             <h3>AI-powered agents</h3>
             <p>With tools like <strong>OpenClaw</strong>, you can connect local models to your actual workflows — calendars, files, messages — creating autonomous assistants that act on your behalf.</p>
@@ -130,24 +141,28 @@
 
         <div class="card-grid">
           <div class="card tool-card">
+            <div class="card-tag">Model Runner</div>
             <h3>🦙 Ollama</h3>
             <p>One-command model installation and management. Runs on Mac, Windows, Linux. The default choice for most teams.</p>
             <a href="https://ollama.com" target="_blank" rel="noopener" class="tool-link">ollama.com ↗</a>
           </div>
 
           <div class="card tool-card">
+            <div class="card-tag">GUI Runner</div>
             <h3>🤗 LM Studio</h3>
             <p>GUI-based model browser and runner. Great if you prefer clicking over typing. Download, test, and run models visually.</p>
             <a href="https://lmstudio.ai" target="_blank" rel="noopener" class="tool-link">lmstudio.ai ↗</a>
           </div>
 
           <div class="card tool-card">
+            <div class="card-tag">AI Agent</div>
             <h3>⚡ OpenClaw</h3>
             <p>Connect your local AI to your real life — files, messages, calendars, GitHub, and more. Turns a chatbot into an AI agent.</p>
             <a href="https://docs.openclaw.ai" target="_blank" rel="noopener" class="tool-link">docs.openclaw.ai ↗</a>
           </div>
 
           <div class="card tool-card">
+            <div class="card-tag">Core Engine</div>
             <h3>🧠 llama.cpp</h3>
             <p>The engine under the hood. Minimal footprint, runs on almost anything. Used by Ollama and many other tools.</p>
             <a href="https://github.com/ggerganov/llama.cpp" target="_blank" rel="noopener" class="tool-link">GitHub ↗</a>
@@ -167,8 +182,13 @@
 
   <footer>
     <div class="container">
-      <p>LocalAI Guides — Free, open-source AI guides for everyone.</p>
-      <p class="footer-note">Built by <a href="https://github.com/rischuhm" target="_blank" rel="noopener">Richard R</a>. All guides are free and open-source.</p>
+      <a href="https://www.xalt.de/ai" class="footer-logo">XALT</a>
+      <div class="footer-links">
+        <a href="https://www.xalt.de/ai">XALT AI</a>
+        <a href="https://www.xalt.de">xalt.de</a>
+        <a href="https://github.com/rischuhm" target="_blank" rel="noopener">GitHub</a>
+      </div>
+      <p>&copy; 2026 XALT. All rights reserved.</p>
     </div>
   </footer>
 </body>
