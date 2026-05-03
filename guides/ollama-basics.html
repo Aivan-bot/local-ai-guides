@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Getting started with Ollama | LocalAI Guides</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="../index.html" class="logo">LocalAI<span>Guides</span></a>
+      <div class="nav-links">
+        <a href="../index.html#why">Why Local AI</a>
+        <a href="../index.html#guides">Guides</a>
+        <a href="../index.html#tools">Tools</a>
+      </div>
+    </nav>
+  </header>
+
+  <main class="guide-main">
+    <article>
+      <div class="guide-header">
+        <a href="../index.html" class="back-link">← All guides</a>
+        <h1>Getting started with Ollama</h1>
+        <p class="guide-header-sub">Your first local language model in 15 minutes.</p>
+      </div>
+
+      <div class="guide-content">
+        <h2>What is Ollama?</h2>
+        <p>Ollama is an open-source tool that lets you run large language models (LLMs) on your own computer. No cloud accounts, no API keys to third parties, no per-message billing.</p>
+
+        <h2>Installation</h2>
+
+        <h3>macOS</h3>
+        <div class="code-block">
+          <pre><code>brew install ollama
+ollama serve</code></pre>
+        </div>
+
+        <h3>Linux</h3>
+        <div class="code-block">
+          <pre><code>curl -fsSL https://ollama.com/install.sh | sh
+ollama serve</code></pre>
+        </div>
+
+        <h3>Windows</h3>
+        <p>Download the installer from <a href="https://ollama.com/download/windows" target="_blank">ollama.com</a>. It installs as a system tray app.</p>
+
+        <h2>Download your first model</h2>
+        <div class="code-block">
+          <pre><code>ollama pull qwen2.5:7b</code></pre>
+        </div>
+
+        <div class="tip-box">
+          <strong>Popular models available:</strong>
+          <ul>
+            <li><code>qwen2.5:7b</code> — Great all-rounder, fits on most laptops</li>
+            <li><code>llama3.2:3b</code> — Fast, efficient, good for simple tasks</li>
+            <li><code>mistral:7b</code> — Strong reasoning, versatile</li>
+            <li><code>codestral:22b</code> — Code generation specialist</li>
+            <li><code>phi3:mini</code> — Microsoft's compact model, runs on anything</li>
+          </ul>
+        </div>
+
+        <h2>Chat with your model</h2>
+        <div class="code-block">
+          <pre><code>ollama run qwen2.5:7b</code></pre>
+        </div>
+
+        <p>Once the model loads, you can chat normally. The model runs entirely on your machine.</p>
+
+        <h2>Use it as an API</h2>
+        <p>Ollama exposes a local OpenAI-compatible API:</p>
+        <div class="code-block">
+          <pre><code>curl http://localhost:11434/v1/chat/completions \
+  -H "Content-Type: application/json" \
+  -d '{
+    "model": "qwen2.5:7b",
+    "messages": [{"role": "user", "content": "Hello!"}]
+  }'</code></pre>
+        </div>
+
+        <p>This means any tool that supports OpenAI's API can use your local model — including OpenClaw, LangChain, and dozens of other frameworks.</p>
+
+        <div class="guide-footer">
+          <p><a href="../index.html#guides">← Back to all guides</a></p>
+        </div>
+      </div>
+    </article>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>LocalAI Guides — Free, open-source AI guides for everyone.</p>
+      <p class="footer-note">Built by <a href="https://github.com/rischuhm" target="_blank" rel="noopener">Richard R</a>.</p>
+    </div>
+  </footer>
+
+  <style>
+    .guide-main { padding: 100px 0 80px; min-height: 100vh; }
+    .guide-header { max-width: 720px; margin: 0 auto 48px; padding: 0 24px; }
+    .back-link { color: var(--text-muted); font-size: 0.9rem; display: inline-block; margin-bottom: 24px; }
+    .back-link:hover { color: var(--accent-light); }
+    .guide-header h1 { font-size: clamp(2rem, 5vw, 2.8rem); font-weight: 800; margin-bottom: 16px; }
+    .guide-header-sub { color: var(--text-muted); font-size: 1.15rem; }
+    .guide-content { max-width: 720px; margin: 0 auto; padding: 0 24px; }
+    .guide-content h2 { font-size: 1.6rem; margin: 48px 0 16px; font-weight: 700; }
+    .guide-content h3 { font-size: 1.2rem; margin: 32px 0 12px; font-weight: 600; }
+    .guide-content p { color: var(--text-muted); margin-bottom: 16px; font-size: 1rem; }
+    .guide-content ul { color: var(--text-muted); margin-bottom: 16px; padding-left: 24px; }
+    .guide-content li { margin-bottom: 8px; }
+    .guide-content code { background: var(--surface); padding: 2px 6px; border-radius: 4px; font-size: 0.9em; }
+    .code-block { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 24px; margin: 16px 0 24px; overflow-x: auto; }
+    .code-block pre { margin: 0; }
+    .code-block code { background: none; padding: 0; font-size: 0.9rem; line-height: 1.8; }
+    .tip-box { background: var(--accent-glow); border: 1px solid var(--accent); border-radius: var(--radius); padding: 24px; margin: 24px 0; }
+    .tip-box strong { color: var(--accent-light); }
+    .tip-box ul { margin-top: 8px; }
+    .guide-footer { border-top: 1px solid var(--border); padding-top: 32px; margin-top: 64px; }
+  </style>
+</body>
+</html>

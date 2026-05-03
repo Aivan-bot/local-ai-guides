@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Setting up OpenClaw | LocalAI Guides</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="../index.html" class="logo">LocalAI<span>Guides</span></a>
+      <div class="nav-links">
+        <a href="../index.html#why">Why Local AI</a>
+        <a href="../index.html#guides">Guides</a>
+        <a href="../index.html#tools">Tools</a>
+      </div>
+    </nav>
+  </header>
+
+  <main class="guide-main">
+    <article>
+      <div class="guide-header">
+        <a href="../index.html" class="back-link">← All guides</a>
+        <h1>Setting up OpenClaw as your AI agent</h1>
+        <p class="guide-header-sub">Connect your local model to your real tools — files, messages, calendars, and more.</p>
+      </div>
+
+      <div class="guide-content">
+        <h2>What is OpenClaw?</h2>
+        <p>OpenClaw is a local AI agent framework. Unlike a chatbot that just talks back, an AI agent can <strong>do things</strong> — read your files, run commands, manage your calendar, interact with GitHub, and automate workflows. All running locally on your hardware.</p>
+
+        <h2>Installation</h2>
+        <div class="code-block">
+          <pre><code># Install via npm
+npm install -g openclaw
+
+# Initialize
+openclaw init</code></pre>
+        </div>
+
+        <h2>Core configuration</h2>
+        <p>OpenClaw's configuration lives in <code>~/.openclaw/openclaw.json</code>. Here's the minimal setup for local AI:</p>
+
+        <div class="code-block">
+          <pre><code>{
+  "agents": {
+    "defaults": {
+      "model": "ollama/qwen2.5:7b",
+      "provider": {
+        "type": "ollama",
+        "baseUrl": "http://localhost:11434"
+      }
+    }
+  },
+  "channels": {
+    "telegram": {
+      "enabled": true,
+      "token": "YOUR_BOT_TOKEN"
+    }
+  }
+}</code></pre>
+        </div>
+
+        <h2>Available channels</h2>
+        <ul>
+          <li><strong>Telegram</strong> — Best for personal use. Create a bot with @BotFather.</li>
+          <li><strong>Slack</strong> — Great for team setups.</li>
+          <li><strong>Discord</strong> — For community/workserver bots.</li>
+          <li><strong>Signal</strong> — Private messaging support.</li>
+          <li><strong>Web</strong> — Built-in web interface.</li>
+        </ul>
+
+        <h2>Skills — Give your agent capabilities</h2>
+        <p>OpenClaw uses "skills" to add functionality. Each skill is a folder with instructions and scripts that teach your agent how to use specific tools:</p>
+
+        <ul>
+          <li><strong>Git/GitHub</strong> — Commit code, create PRs, manage issues</li>
+          <li><strong>Weather</strong> — Get forecasts for any location</li>
+          <li><strong>TaskFlow</strong> — Multi-step automation workflows</li>
+          <li><strong>Session management</strong> — Manage your own conversations</li>
+        </ul>
+
+        <h2>Scheduled tasks (Crons)</h2>
+        <p>Set up automated checks that run on schedule:</p>
+
+        <div class="code-block">
+          <pre><code># Check email every 30 minutes
+# Send daily news digest at 9am
+# Monitor a GitHub repo for updates
+# Remind you of deadlines</code></pre>
+        </div>
+
+        <h2>Security</h2>
+        <div class="tip-box">
+          <strong>Important for business use:</strong>
+          <ul>
+            <li>All data stays on your machine</li>
+            <li>Commands run with your user's permissions (approve before execution)</li>
+            <li>No data sent to external APIs (your model runs locally)</li>
+            <li>You control which channels and skills are active</li>
+          </ul>
+        </div>
+
+        <h2>Full documentation</h2>
+        <p>For advanced configuration, see the full docs:</p>
+        <ul>
+          <li><a href="https://docs.openclaw.ai" target="_blank">https://docs.openclaw.ai</a></li>
+          <li><a href="https://github.com/openclaw/openclaw" target="_blank">GitHub source</a></li>
+        </ul>
+
+        <div class="guide-footer">
+          <p><a href="../index.html#guides">← Back to all guides</a></p>
+        </div>
+      </div>
+    </article>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>LocalAI Guides — Free, open-source AI guides for everyone.</p>
+      <p class="footer-note">Built by <a href="https://github.com/rischuhm" target="_blank" rel="noopener">Richard R</a>.</p>
+    </div>
+  </footer>
+
+  <style>
+    .guide-main { padding: 100px 0 80px; min-height: 100vh; }
+    .guide-header { max-width: 720px; margin: 0 auto 48px; padding: 0 24px; }
+    .back-link { color: var(--text-muted); font-size: 0.9rem; display: inline-block; margin-bottom: 24px; }
+    .back-link:hover { color: var(--accent-light); }
+    .guide-header h1 { font-size: clamp(2rem, 5vw, 2.8rem); font-weight: 800; margin-bottom: 16px; }
+    .guide-header-sub { color: var(--text-muted); font-size: 1.15rem; }
+    .guide-content { max-width: 720px; margin: 0 auto; padding: 0 24px; }
+    .guide-content h2 { font-size: 1.6rem; margin: 48px 0 16px; font-weight: 700; }
+    .guide-content h3 { font-size: 1.2rem; margin: 32px 0 12px; font-weight: 600; }
+    .guide-content p { color: var(--text-muted); margin-bottom: 16px; font-size: 1rem; }
+    .guide-content ul { color: var(--text-muted); margin-bottom: 16px; padding-left: 24px; }
+    .guide-content li { margin-bottom: 8px; }
+    .guide-content code { background: var(--surface); padding: 2px 6px; border-radius: 4px; font-size: 0.9em; }
+    .code-block { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 24px; margin: 16px 0 24px; overflow-x: auto; }
+    .code-block pre { margin: 0; }
+    .code-block code { background: none; padding: 0; font-size: 0.9rem; line-height: 1.8; }
+    .tip-box { background: var(--accent-glow); border: 1px solid var(--accent); border-radius: var(--radius); padding: 24px; margin: 24px 0; }
+    .tip-box strong { color: var(--accent-light); }
+    .tip-box ul { margin-top: 8px; }
+    .guide-footer { border-top: 1px solid var(--border); padding-top: 32px; margin-top: 64px; }
+  </style>
+</body>
+</html>

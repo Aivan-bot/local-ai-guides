@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Choosing your first model | LocalAI Guides</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="../index.html" class="logo">LocalAI<span>Guides</span></a>
+      <div class="nav-links">
+        <a href="../index.html#why">Why Local AI</a>
+        <a href="../index.html#guides">Guides</a>
+        <a href="../index.html#tools">Tools</a>
+      </div>
+    </nav>
+  </header>
+
+  <main class="guide-main">
+    <article>
+      <div class="guide-header">
+        <a href="../index.html" class="back-link">← All guides</a>
+        <h1>Choosing your first model</h1>
+        <p class="guide-header-sub">Qwen, Llama, Mistral — which open-source models actually work well, and when to use each one.</p>
+      </div>
+
+      <div class="guide-content">
+        <h2>The landscape (2026)</h2>
+        <p>The open-source AI world has matured significantly. You no longer need massive models for great results — the 7B-14B range punches well above its weight class.</p>
+
+        <h2>Top recommendations for beginners</h2>
+
+        <div class="tip-box">
+          <strong>🏆 Best all-rounder for most people:</strong>
+          <ul>
+            <li><strong>Qwen 2.5 7B</strong> — Excellent reasoning, strong multilingual, runs on any modern laptop</li>
+          </ul>
+        </div>
+
+        <h2>Model comparison</h2>
+
+        <div class="code-block">
+          <pre><code>+--------+-----------+-------+----+-------+---------+
+| Model  | Param     | Fit on | Speed | Best for       | Get via |
++--------+---------+---------+----+-------+---------+--------+
+| qwen2.5:7b  | 7B  | 8GB RAM | ⚡⚡⚡ | General purpose | ollama  |
+| llama3.2:3b | 3B  | 4GB RAM | ⚡⚡⚡⚡ | Slow machines   | ollama  |
+| llama3.2:11b| 11B | 16GB RAM| ⚡⚡   | Quality + speed  | ollama  |
+| mistral:7b  | 7B  | 8GB RAM | ⚡⚡⚡ | Reasoning tasks | ollama  |
+| phi3:mini   | 3.8B| 6GB RAM | ⚡⚡⚡⚡ | Microsoft quality | ollama  |
+| codestral:22b| 22B| 32GB RAM| ⚡   | Code generation  | ollama  |
+| qwen2.5:32b | 32B| 48GB RAM| ⚡   | Best quality     | ollama  |
+| llama3.1:70b| 70B | 80GB+  | ⚠️  | Maximum capability | ollama  |
++--------+-----------+-------+----+-------+---------+--------+
+RAM = unified memory needed. Speed = relative (⚡⚡⚡⚡ = fastest)</code></pre>
+        </div>
+
+        <h2>Model families explained</h2>
+
+        <h3>Qwen (Alibaba)</h3>
+        <p>Currently the best open-source performer across most benchmarks. Qwen 2.5 7B rivals models 3-4x its size. Excellent at reasoning, coding, and multilingual tasks. Strong tool-use capability (works great with OpenClaw).</p>
+
+        <h3>Llama 3.x (Meta)</h3>
+        <p>The most widely supported model family. Good all-rounder, huge community, lots of fine-tunes available. Meta's engineering team constantly pushes improvements. Llama 3.2 is optimized for efficiency.</p>
+
+        <h3>Mistral (France)</h3>
+        <p>European alternative with strong reasoning capabilities. Mistral's models are known for being clean and efficient. Good for analytical and logical tasks.</p>
+
+        <h3>Phi 3 (Microsoft)</h3>
+        <p>Surprisingly capable for its size. Microsoft's "small but mighty" approach. Excellent for code and math. Runs well on constrained hardware.</p>
+
+        <h2>How to choose</h2>
+        <div class="code-block">
+          <pre><code>If you have...         → Start with...
+─────────────────────────────────────
+4-8GB RAM             → phi3:mini or llama3.2:3b
+8-16GB RAM            → qwen2.5:7b (recommended)
+16-24GB RAM           → qwen2.5:14b or llama3.2:11b
+24-48GB RAM           → qwen2.5:32b
+48GB+ RAM or GPU      → qwen2.5:72b or llama3.1:70b</code></pre>
+        </div>
+
+        <h2>Trying models is free</h2>
+        <p>Ollama makes it trivial to test different models:</p>
+        <div class="code-block">
+          <pre><code>ollama pull qwen2.5:7b
+ollama run qwen2.5:7b
+
+# Compare with another model
+ollama pull llama3.2:3b
+ollama run llama3.2:3b</code></pre>
+        </div>
+
+        <p>Run the same prompt on different models and compare. The "best" model depends on your hardware and use case.</p>
+
+        <div class="guide-footer">
+          <p><a href="../index.html#guides">← Back to all guides</a></p>
+        </div>
+      </div>
+    </article>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>LocalAI Guides — Free, open-source AI guides for everyone.</p>
+      <p class="footer-note">Built by <a href="https://github.com/rischuhm" target="_blank" rel="noopener">Richard R</a>.</p>
+    </div>
+  </footer>
+
+  <style>
+    .guide-main { padding: 100px 0 80px; min-height: 100vh; }
+    .guide-header { max-width: 720px; margin: 0 auto 48px; padding: 0 24px; }
+    .back-link { color: var(--text-muted); font-size: 0.9rem; display: inline-block; margin-bottom: 24px; }
+    .back-link:hover { color: var(--accent-light); }
+    .guide-header h1 { font-size: clamp(2rem, 5vw, 2.8rem); font-weight: 800; margin-bottom: 16px; }
+    .guide-header-sub { color: var(--text-muted); font-size: 1.15rem; }
+    .guide-content { max-width: 720px; margin: 0 auto; padding: 0 24px; }
+    .guide-content h2 { font-size: 1.6rem; margin: 48px 0 16px; font-weight: 700; }
+    .guide-content h3 { font-size: 1.2rem; margin: 32px 0 12px; font-weight: 600; }
+    .guide-content p { color: var(--text-muted); margin-bottom: 16px; font-size: 1rem; }
+    .guide-content ul { color: var(--text-muted); margin-bottom: 16px; padding-left: 24px; }
+    .guide-content li { margin-bottom: 8px; }
+    .guide-content code { background: var(--surface); padding: 2px 6px; border-radius: 4px; font-size: 0.9em; }
+    .code-block { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 24px; margin: 16px 0 24px; overflow-x: auto; }
+    .code-block pre { margin: 0; }
+    .code-block code { background: none; padding: 0; font-size: 0.85rem; line-height: 1.8; }
+    .tip-box { background: var(--accent-glow); border: 1px solid var(--accent); border-radius: var(--radius); padding: 24px; margin: 24px 0; }
+    .tip-box strong { color: var(--accent-light); }
+    .tip-box ul { margin-top: 8px; }
+    .guide-footer { border-top: 1px solid var(--border); padding-top: 32px; margin-top: 64px; }
+  </style>
+</body>
+</html>

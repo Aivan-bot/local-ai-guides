@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ollama + OpenClaw — Your first local AI setup | LocalAI Guides</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="../index.html" class="logo">LocalAI<span>Guides</span></a>
+      <div class="nav-links">
+        <a href="../index.html#why">Why Local AI</a>
+        <a href="../index.html#guides">Guides</a>
+        <a href="../index.html#tools">Tools</a>
+      </div>
+    </nav>
+  </header>
+
+  <main class="guide-main">
+    <article>
+      <div class="guide-header">
+        <a href="../index.html" class="back-link">← All guides</a>
+        <h1>Ollama + OpenClaw</h1>
+        <p class="guide-header-sub">Install local AI and connect it to your daily tools in 30 minutes.</p>
+      </div>
+
+      <div class="guide-content">
+        <h2>What you'll build</h2>
+        <p>A local AI assistant that runs on your hardware, responds on Telegram, reads your files, manages your calendar, and automates routine tasks. No cloud dependency. No per-request costs.</p>
+
+        <div class="prerequisites">
+          <h3>Prerequisites</h3>
+          <ul>
+            <li>A Mac, Linux machine, or Windows WSL2</li>
+            <li>At least 8GB RAM (16GB recommended)</li>
+            <li>Internet connection for the initial download</li>
+          </ul>
+        </div>
+
+        <h2>Step 1: Install Ollama</h2>
+        <p>Ollama is the simplest way to run large language models locally. One command, zero configuration.</p>
+
+        <div class="code-block">
+          <pre><code># macOS or Linux
+curl -fsSL https://ollama.com/install.sh | sh
+
+# Windows — download from https://ollama.com/download/windows
+
+# Start the service (if not auto-started)
+ollama serve</code></pre>
+        </div>
+
+        <p>Verify it works:</p>
+        <div class="code-block">
+          <pre><code>ollama --version</code></pre>
+        </div>
+
+        <h2>Step 2: Pull your first model</h2>
+        <p>We'll use <strong>Qwen 2.5 7B</strong> — excellent quality, runs on modest hardware, and supports the OpenClaw tool protocol.</p>
+
+        <div class="code-block">
+          <pre><code>ollama pull qwen2.5:7b</code></pre>
+        </div>
+
+        <p>This downloads ~4.5GB. On a normal connection it takes 2–5 minutes. Test it:</p>
+        <div class="code-block">
+          <pre><code>ollama run qwen2.5:7b "Write a one-paragraph pitch for a local AI consulting service."</code></pre>
+        </div>
+
+        <div class="tip-box">
+          <strong>💡 Model selection tip:</strong>
+          <ul>
+            <li><strong>7B models</strong> — runs on laptops with 16GB RAM</li>
+            <li><strong>14B models</strong> — needs 24GB RAM or a GPU</li>
+            <li><strong>32B+ models</strong> — dedicated GPU/server recommended</li>
+          </ul>
+        </div>
+
+        <h2>Step 3: Set up OpenClaw</h2>
+        <p>OpenClaw connects your local model to your real tools. Let's install it:</p>
+
+        <div class="code-block">
+          <pre><code># Install OpenClaw CLI
+npm install -g openclaw
+
+# Initialize your assistant
+openclaw init</code></pre>
+        </div>
+
+        <p>During setup, you'll configure:</p>
+        <ol>
+          <li><strong>Model provider</strong> — point to your local Ollama instance (<code>http://localhost:11434</code>)</li>
+          <li><strong>Channels</strong> — Telegram, Slack, or web interface</li>
+          <li><strong>Skills</strong> — git, weather, session management, etc.</li>
+          <li><strong>Crons</strong> — scheduled tasks and reminders</li>
+        </ol>
+
+        <h2>Step 4: Connect Telegram (optional but recommended)</h2>
+        <p>Telegram is the easiest channel. Create a bot via BotFather:</p>
+        <ol>
+          <li>Open Telegram, search for <strong>@BotFather</strong></li>
+          <li>Send <code>/newbot</code> and follow the prompts</li>
+          <li>Copy the API token it gives you</li>
+        </ol>
+
+        <p>Then in OpenClaw:</p>
+        <div class="code-block">
+          <pre><code># In your openclaw config (usually ~/.openclaw/openclaw.json):
+# Add under telegram configuration:
+{
+  "telegram": {
+    "enabled": true,
+    "token": "YOUR_BOT_TOKEN_HERE",
+    "chatId": "YOUR_CHAT_ID"
+  }
+}</code></pre>
+        </div>
+
+        <h2>What you have now</h2>
+        <p>Your local AI assistant is running. It can:</p>
+        <ul>
+          <li>Chat with you on Telegram (or your chosen channel)</li>
+          <li>Read and write files on your machine</li>
+          <li>Run shell commands (with your approval)</li>
+          <li>Connect to GitHub, calendars, and other tools via skills</li>
+          <li>Schedule tasks with cron jobs</li>
+        </ul>
+
+        <div class="tip-box">
+          <strong>🎯 Next steps for businesses:</strong>
+          <ul>
+            <li><a href="openclaw-setup.html">Configure OpenClaw for team use</a></li>
+            <li><a href="../index.html#tools">Browse the local AI toolchain</a></li>
+            <li><a href="hardware.html">Upgrade your hardware for better performance</a></li>
+          </ul>
+        </div>
+
+        <div class="guide-footer">
+          <p><strong>Still have questions?</strong> This guide is open-source. <a href="https://github.com/rischuhm/local-ai-guides" target="_blank">Contribute improvements →</a></p>
+        </div>
+      </div>
+    </article>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>LocalAI Guides — Free, open-source AI guides for everyone.</p>
+      <p class="footer-note">Built by <a href="https://github.com/rischuhm" target="_blank" rel="noopener">Richard R</a>. All guides are free and open-source.</p>
+    </div>
+  </footer>
+
+  <style>
+    .guide-main { padding: 100px 0 80px; min-height: 100vh; }
+    .guide-header { max-width: 720px; margin: 0 auto 48px; padding: 0 24px; }
+    .back-link { color: var(--text-muted); font-size: 0.9rem; display: inline-block; margin-bottom: 24px; }
+    .back-link:hover { color: var(--accent-light); }
+    .guide-header h1 { font-size: clamp(2rem, 5vw, 2.8rem); font-weight: 800; margin-bottom: 16px; }
+    .guide-header-sub { color: var(--text-muted); font-size: 1.15rem; }
+    .guide-content { max-width: 720px; margin: 0 auto; padding: 0 24px; }
+    .guide-content h2 { font-size: 1.6rem; margin: 48px 0 16px; font-weight: 700; }
+    .guide-content h3 { font-size: 1.2rem; margin: 32px 0 12px; font-weight: 600; }
+    .guide-content p { color: var(--text-muted); margin-bottom: 16px; font-size: 1rem; }
+    .guide-content ul, .guide-content ol { color: var(--text-muted); margin-bottom: 16px; padding-left: 24px; }
+    .guide-content li { margin-bottom: 8px; }
+    .guide-content code { background: var(--surface); padding: 2px 6px; border-radius: 4px; font-size: 0.9em; }
+    .code-block { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 24px; margin: 16px 0 24px; overflow-x: auto; }
+    .code-block pre { margin: 0; }
+    .code-block code { background: none; padding: 0; font-size: 0.9rem; line-height: 1.8; }
+    .tip-box { background: var(--accent-glow); border: 1px solid var(--accent); border-radius: var(--radius); padding: 24px; margin: 24px 0; }
+    .tip-box strong { color: var(--accent-light); }
+    .tip-box ul { margin-top: 8px; }
+    .prerequisites { background: var(--bg-alt); border: 1px solid var(--border); border-radius: var(--radius); padding: 24px; margin: 16px 0 32px; }
+    .prerequisites ul { list-style: none; padding-left: 0; }
+    .prerequisites li::before { content: "✓ "; color: var(--success); font-weight: bold; }
+    .guide-footer { border-top: 1px solid var(--border); padding-top: 32px; margin-top: 64px; }
+  </style>
+</body>
+</html>

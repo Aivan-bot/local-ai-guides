@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Local AI Guides — Free guides for business leaders</title>
+  <meta name="description" content="Free, practical guides for getting started with local AI. No data leaves your building. No API keys to third parties. Built for business leaders who need AI without the risk.">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="/" class="logo">LocalAI<span>Guides</span></a>
+      <div class="nav-links">
+        <a href="#why">Why Local AI</a>
+        <a href="#guides">Guides</a>
+        <a href="#tools">Tools</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section class="hero">
+      <div class="hero-content">
+        <h1>Get started with local AI. <span>For free.</span></h1>
+        <p class="hero-sub">Your data stays on your servers. No API keys to strangers. No vendor lock-in. Just open-source models running on hardware you already own.</p>
+        <div class="hero-ctas">
+          <a href="#guides" class="btn btn-primary">Start with a guide →</a>
+          <a href="#why" class="btn btn-secondary">Why local AI?</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Why Local AI -->
+    <section id="why" class="section">
+      <div class="container">
+        <h2>Why should a business leader care about local AI?</h2>
+        <p class="section-lead">Cloud AI is convenient. Local AI is <em>controlled</em>. Here's what changes when you bring AI in-house:</p>
+
+        <div class="card-grid">
+          <div class="card">
+            <div class="card-icon">🔒</div>
+            <h3>Data sovereignty</h3>
+            <p>Customer contracts, financial projections, HR data — your AI processes it all <strong>inside your infrastructure</strong>. Nothing leaks to third-party APIs.</p>
+          </div>
+
+          <div class="card">
+            <div class="card-icon">📉</div>
+            <h3>Predictable costs</h3>
+            <p>Cloud AI charges per token. Those costs compound fast with real usage. Local AI runs on hardware you own — marginal cost of inference is near zero.</p>
+          </div>
+
+          <div class="card">
+            <div class="card-icon">⚡</div>
+            <h3>Zero latency</h3>
+            <p>No network roundtrips to an API gateway. Responses stream directly from your GPU or CPU. Critical for real-time applications.</p>
+          </div>
+
+          <div class="card">
+            <div class="card-icon">🏗️</div>
+            <h3>AI-powered agents</h3>
+            <p>With tools like <strong>OpenClaw</strong>, you can connect local models to your actual workflows — calendars, files, messages — creating autonomous assistants that act on your behalf.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Quick Start -->
+    <section id="guides" class="section section-alt">
+      <div class="container">
+        <h2>Start here: Your first local AI setup</h2>
+        <p class="section-lead">Pick your path. Each guide takes 15–30 minutes and leaves you with a working local AI instance.</p>
+
+        <div class="guide-list">
+          <a href="guides/ollama-openclaw.html" class="guide-card featured">
+            <div class="guide-tag">Recommended</div>
+            <h3>Ollama + OpenClaw</h3>
+            <p>The fastest way to run local models and connect them to your daily tools. Ollama installs any model with one command. OpenClaw turns that model into an AI assistant that can read your files, manage your calendar, and automate tasks.</p>
+            <div class="guide-meta">
+              <span>⭐ 30 min</span>
+              <span>Beginner-friendly</span>
+            </div>
+          </a>
+
+          <a href="guides/ollama-basics.html" class="guide-card">
+            <h3>Getting started with Ollama</h3>
+            <p>Install Ollama, download your first model, and run your first chat. The foundation everything else builds on.</p>
+            <div class="guide-meta">
+              <span>15 min</span>
+              <span>Beginner</span>
+            </div>
+          </a>
+
+          <a href="guides/openclaw-setup.html" class="guide-card">
+            <h3>Setting up OpenClaw as your AI agent</h3>
+            <p>Configure OpenClaw to connect to your local models, set up channels (Telegram, Slack, web), and give your AI assistant real capabilities.</p>
+            <div class="guide-meta">
+              <span>30 min</span>
+              <span>Intermediate</span>
+            </div>
+          </a>
+
+          <a href="guides/hardware.html" class="guide-card">
+            <h3>Hardware guide: What you need to run AI locally</h3>
+            <p>From your laptop to a dedicated server — pick the right hardware for your budget and performance needs.</p>
+            <div class="guide-meta">
+              <span>10 min</span>
+              <span>Any level</span>
+            </div>
+          </a>
+
+          <a href="guides/models.html" class="guide-card">
+            <h3>Choosing your first model</h3>
+            <p>Qwen, Llama, Mistral — which open-source models actually work well, and when to use each one.</p>
+            <div class="guide-meta">
+              <span>10 min</span>
+              <span>Any level</span>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tools -->
+    <section id="tools" class="section">
+      <div class="container">
+        <h2>The local AI toolchain</h2>
+        <p class="section-lead">The essential open-source stack for running AI locally.</p>
+
+        <div class="card-grid">
+          <div class="card tool-card">
+            <h3>🦙 Ollama</h3>
+            <p>One-command model installation and management. Runs on Mac, Windows, Linux. The default choice for most teams.</p>
+            <a href="https://ollama.com" target="_blank" rel="noopener" class="tool-link">ollama.com ↗</a>
+          </div>
+
+          <div class="card tool-card">
+            <h3>🤗 LM Studio</h3>
+            <p>GUI-based model browser and runner. Great if you prefer clicking over typing. Download, test, and run models visually.</p>
+            <a href="https://lmstudio.ai" target="_blank" rel="noopener" class="tool-link">lmstudio.ai ↗</a>
+          </div>
+
+          <div class="card tool-card">
+            <h3>⚡ OpenClaw</h3>
+            <p>Connect your local AI to your real life — files, messages, calendars, GitHub, and more. Turns a chatbot into an AI agent.</p>
+            <a href="https://docs.openclaw.ai" target="_blank" rel="noopener" class="tool-link">docs.openclaw.ai ↗</a>
+          </div>
+
+          <div class="card tool-card">
+            <h3>🧠 llama.cpp</h3>
+            <p>The engine under the hood. Minimal footprint, runs on almost anything. Used by Ollama and many other tools.</p>
+            <a href="https://github.com/ggerganov/llama.cpp" target="_blank" rel="noopener" class="tool-link">GitHub ↗</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="section section-cta">
+      <div class="container">
+        <h2>Ready to start?</h2>
+        <p>Start with our <a href="guides/ollama-openclaw.html">Ollama + OpenClaw guide</a> — it covers the most important setup for business use.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>LocalAI Guides — Free, open-source AI guides for everyone.</p>
+      <p class="footer-note">Built by <a href="https://github.com/rischuhm" target="_blank" rel="noopener">Richard R</a>. All guides are free and open-source.</p>
+    </div>
+  </footer>
+</body>
+</html>
